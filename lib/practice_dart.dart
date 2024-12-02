@@ -33,5 +33,7 @@ void main() {
   String? nullString;
 
   // short function
-  // func() => 'a';
+  String func() => 'message from function';
+  var message = func();
+  print(message);
 }
