@@ -21,9 +21,9 @@ class MyApp extends StatelessWidget {
       // theme
       theme: ThemeData(
         useMaterial3: true,
-        appBarTheme: const AppBarTheme(color: Colors.lightBlue),
+        appBarTheme: const AppBarTheme(color: Colors.deepPurple),
         // appBarTheme is a color of app bar theme (cover all page)
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.greenAccent),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         // colorSchema is a color of application that control the body if doesn't have it will use default color(white).
       ),
 
@@ -31,13 +31,24 @@ class MyApp extends StatelessWidget {
         // Scaffold is like form.
         // property : wiget
         appBar: AppBar(
-          title: const Text('Appbar'),
+          // title: const Text('Appbar'),
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                "assets/images/logo.png",
+                width: 80,
+                height: 80,
+              ),
+            ],
+          ),
           // action is one or more child but leading is have one child only.
           leading: IconButton(
             onPressed: () {
               debugPrint("leading is clicked.");
             },
             icon: const Icon(Icons.menu),
+            color: Colors.white,
           ),
           actions: [
             IconButton(
@@ -45,190 +56,223 @@ class MyApp extends StatelessWidget {
                 debugPrint("inbox action button is clicked.");
               },
               icon: const Icon(Icons.inbox),
+              color: Colors.white,
             ),
             IconButton(
               onPressed: () {
                 debugPrint("Profile action button is clicked.");
               },
               icon: const Icon(Icons.person),
+              color: Colors.white,
             ),
           ],
         ),
         // body must have 1 wiget(child) only if want to add other wiget must use wrapper ( Column , Row or etc.) to set layout.
         // if have button or elements it will be paste in body.
         body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            const Text(
-              "My mobile application",
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const Text(
-              "Hello mobile app.",
-              style: TextStyle(
-                fontSize: 15,
-                fontStyle: FontStyle.italic,
-              ),
-            ),
-            // Image.network("https://picsum.photos/250?image=9"),
-            // Image.network("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM5kt9cWqI1xeKY9K3eRPq7tDbxKPd05cdiQ&s"),
-            Row(
+            Column(
               children: [
                 Image.asset(
-                  "assets/images/sheep.jpg",
-                  width: 120,
-                  height: 200,
+                  "assets/images/logo.png",
+                  width: 250,
+                  height: 100,
                 ),
-                const Column(
-                  children: [
-                    Text(
-                      "Paragraph Title",
-                      style:
-                          TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                    ),
-                    Text("Text abc 12345 aaaaaaaaaa")
-                  ],
-                )
+                const Text(
+                  "ขอบคุณที่ใช้บริการ",
+                  style: TextStyle(
+                    fontSize: 23,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const Text(
+                  "เรายินดีที่ได้เป็นส่วนหนึ่งในการเดินทางของคุณ",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.normal,
+                  ),
+                ),
               ],
             ),
-
-            // Image.asset(
-            //   "assets/images/sheep.jpg",
-            //   width: 100,
-            //   height: 120,
-            // ),
-            // Image.asset(
-            //   "assets/images/forest.jpg",
-            //   width: 100,
-            //   height: 120,
-            // ),
-
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+            const Column(
               children: [
-                ElevatedButton(
-                  onPressed: () {
-                    debugPrint("clicked button");
-                    // print("clicked button 2");
-                  }, // onPreesed : function
-                  child: const Text(
-                    "Submit",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      "สรุปรายละเอียดการชาร์จ",
+                      style: TextStyle(
+                        fontSize: 23,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ), // child is text in button
+                  ],
                 ),
-                IconButton(
-                  onPressed: () {
-                    debugPrint("Icon button is clicked.");
-                  },
-                  icon: const Icon(Icons.rocket_launch_rounded),
-                  iconSize: 40,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.calendar_today),
+                        Text(
+                          "วันที่ชาร์จ",
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Text(
+                      "9 ธันวาคม 2567",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.battery_charging_full),
+                        Text(
+                          "สถานีชาร์จ",
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Text(
+                      "PEA VOLTA ABC \nabc#123",
+                      textAlign: TextAlign.end,
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.battery_0_bar),
+                        Text(
+                          "ประเภทหัวชาร์จ",
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Text(
+                      "CCS2",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.timer),
+                        Text(
+                          "ระยะเวลาชาร์จ",
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Text(
+                      "00:57:34",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.electric_bolt_sharp),
+                        Text(
+                          "จำนวนหน่วย",
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Text(
+                      "15.345 KWh",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )
+                  ],
+                ),
+              ],
+            ),
+            const Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "ค่าบริการรวมทั้งสิ้น",
+                      style: TextStyle(
+                        fontSize: 23,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.deepPurple,
+                      ),
+                    ),
+                    Text(
+                      "123.46 บาท",
+                      style: TextStyle(
+                        fontSize: 23,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.deepPurple,
+                      ),
+                    ),
+                  ],
                 ),
               ],
             )
           ],
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            debugPrint("FAB is clicked.");
-          },
-          child: const Icon(Icons.shopping_bag_rounded),
-          // const Text(
-          //   "FAB",
-          //   style: TextStyle(
-          //     fontSize: 18,
-          //     fontWeight: FontWeight.bold,
-          //   ),
-          // ),
-        ),
-
-        // const Column(
-        //   children: [
-        //     Text(
-        //       'Hello world',
-        //       style: TextStyle(
-        //         fontSize: 25,
-        //         fontWeight: FontWeight.bold,
-        //       ),
-        //     ),
-        //     Text(
-        //       "my mobile app",
-        //       style: TextStyle(
-        //         fontSize: 20,
-        //         fontWeight: FontWeight.normal,
-        //       ),
-        //     ),
-        //   ],
+        // floatingActionButton: FloatingActionButton(
+        //   onPressed: () {
+        //     debugPrint("FAB is clicked.");
+        //   },
+        //   child: const Icon(Icons.shopping_bag_rounded),
+        //   // const Text(
+        //   //   "FAB",
+        //   //   style: TextStyle(
+        //   //     fontSize: 18,
+        //   //     fontWeight: FontWeight.bold,
+        //   //   ),
+        //   // ),
         // ),
       ),
     );
   }
 }
-
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'Flutter Demo',
-//       theme: ThemeData(
-//         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
-//         useMaterial3: true,
-//       ),
-//       home: const MyHomePage(title: 'Worawit Kimhenglee'),
-//     );
-//   }
-// }
-
-// class MyHomePage extends StatefulWidget {
-//   const MyHomePage({super.key, required this.title});
-
-//   final String title;
-
-//   @override
-//   State<MyHomePage> createState() => _MyHomePageState();
-// }
-
-// class _MyHomePageState extends State<MyHomePage> {
-//   int _counter = 0;
-
-//   void _incrementCounter() {
-//     setState(() {
-//       _counter--;
-//     });
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-//         title: Text(widget.title),
-//       ),
-//       body: Center(
-//         child: Column(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           children: <Widget>[
-//             const Text(
-//               'Worawit Kimhenglee Count Down:',
-//             ),
-//             Text(
-//               '$_counter',
-//               style: Theme.of(context).textTheme.headlineMedium,
-//             ),
-//           ],
-//         ),
-//       ),
-//       floatingActionButton: FloatingActionButton(
-//         onPressed: _incrementCounter,
-//         tooltip: 'Increment',
-//         child: const Icon(Icons.add),
-//       ),
-//     );
-//   }
-// }
