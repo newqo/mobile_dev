@@ -32,10 +32,15 @@ class MyApp extends StatelessWidget {
         // property : wiget
         appBar: AppBar(
           // title: const Text('Appbar'),
-          title: Image.asset(
-            "assets/images/logo.png",
-            width: 80,
-            height: 80,
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                "assets/images/logo.png",
+                width: 80,
+                height: 80,
+              ),
+            ],
           ),
           // action is one or more child but leading is have one child only.
           leading: IconButton(
