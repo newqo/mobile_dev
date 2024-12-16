@@ -69,195 +69,237 @@ class MyApp extends StatelessWidget {
         ),
         // body must have 1 wiget(child) only if want to add other wiget must use wrapper ( Column , Row or etc.) to set layout.
         // if have button or elements it will be paste in body.
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Column(
-              children: [
-                Image.asset(
-                  "assets/images/logo.png",
-                  width: 250,
-                  height: 100,
-                ),
-                const Text(
-                  "ขอบคุณที่ใช้บริการ",
-                  style: TextStyle(
-                    fontSize: 23,
-                    fontWeight: FontWeight.bold,
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          // padding: 8.0 is default padding.
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Column(
+                children: [
+                  Image.asset(
+                    "assets/images/logo.png",
+                    width: 250,
+                    height: 100,
                   ),
-                ),
-                const Text(
-                  "เรายินดีที่ได้เป็นส่วนหนึ่งในการเดินทางของคุณ",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.normal,
-                  ),
-                ),
-              ],
-            ),
-            const Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      "สรุปรายละเอียดการชาร์จ",
-                      style: TextStyle(
-                        fontSize: 23,
-                        fontWeight: FontWeight.bold,
-                      ),
+                  const Text(
+                    "ขอบคุณที่ใช้บริการ",
+                    style: TextStyle(
+                      fontSize: 23,
+                      fontWeight: FontWeight.bold,
                     ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  ),
+                  const Text(
+                    "เรายินดีที่ได้เป็นส่วนหนึ่งในการเดินทางของคุณ",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                ],
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                // padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
+
+                child: Column(
                   children: [
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          "สรุปรายละเอียดการชาร์จ",
+                          style: TextStyle(
+                            fontSize: 23,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Icon(Icons.calendar_today),
-                        Text(
-                          "วันที่ชาร์จ",
-                          style: TextStyle(
-                            fontSize: 18,
+                        Expanded(
+                          child: Text(
+                            // "วันที่ชาร์จ doekodwkokowdwkdowkodwkwdwddwok", if out of range of display it will be overflow content.
+                            // 'Expand' will be solve overflow content.
+                            // Youtube thumbnail is also use 'Expand'.
+                            "วันที่ชาร์จ doekodwkokowdwkdowkodwkwdk",
+                            style: TextStyle(
+                              fontSize: 18,
+                            ),
                           ),
                         ),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        Text(
+                          "9 ธันวาคม 2567",
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        )
                       ],
                     ),
-                    Text(
-                      "9 ธันวาคม 2567",
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    )
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Icon(Icons.battery_charging_full),
-                        Text(
-                          "สถานีชาร์จ",
-                          style: TextStyle(
-                            fontSize: 18,
-                          ),
+                        Row(
+                          children: [
+                            Icon(Icons.battery_charging_full),
+                            Text(
+                              "สถานีชาร์จ",
+                              style: TextStyle(
+                                fontSize: 18,
+                              ),
+                            ),
+                          ],
                         ),
+                        Expanded(
+                          child: Text(
+                            "PEA VOLTA ABC abc#123",
+                            textAlign: TextAlign.end,
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        )
                       ],
                     ),
-                    Text(
-                      "PEA VOLTA ABC \nabc#123",
-                      textAlign: TextAlign.end,
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    )
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Icon(Icons.battery_0_bar),
+                        Row(
+                          children: [
+                            Icon(Icons.battery_0_bar),
+                            Text(
+                              "ประเภทหัวชาร์จ",
+                              style: TextStyle(
+                                fontSize: 18,
+                              ),
+                            ),
+                          ],
+                        ),
                         Text(
-                          "ประเภทหัวชาร์จ",
+                          "CCS2",
                           style: TextStyle(
                             fontSize: 18,
+                            fontWeight: FontWeight.bold,
                           ),
-                        ),
+                        )
                       ],
                     ),
-                    Text(
-                      "CCS2",
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    )
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Icon(Icons.timer),
+                        Row(
+                          children: [
+                            Icon(Icons.timer),
+                            Text(
+                              "ระยะเวลาชาร์จ",
+                              style: TextStyle(
+                                fontSize: 18,
+                              ),
+                            ),
+                          ],
+                        ),
                         Text(
-                          "ระยะเวลาชาร์จ",
+                          "00:57:34",
                           style: TextStyle(
                             fontSize: 18,
+                            fontWeight: FontWeight.bold,
                           ),
-                        ),
+                        )
                       ],
                     ),
-                    Text(
-                      "00:57:34",
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    )
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Icon(Icons.electric_bolt_sharp),
+                        Row(
+                          children: [
+                            Icon(Icons.electric_bolt_sharp),
+                            Text(
+                              "จำนวนหน่วย",
+                              style: TextStyle(
+                                fontSize: 18,
+                              ),
+                            ),
+                          ],
+                        ),
                         Text(
-                          "จำนวนหน่วย",
+                          "15.345 KWh",
                           style: TextStyle(
                             fontSize: 18,
+                            fontWeight: FontWeight.bold,
                           ),
-                        ),
+                        )
                       ],
                     ),
-                    Text(
-                      "15.345 KWh",
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    )
                   ],
                 ),
-              ],
-            ),
-            const Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "ค่าบริการรวมทั้งสิ้น",
-                      style: TextStyle(
-                        fontSize: 23,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.deepPurple,
+              ),
+              const Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "ค่าบริการรวมทั้งสิ้น",
+                        style: TextStyle(
+                          fontSize: 23,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.deepPurple,
+                        ),
                       ),
-                    ),
-                    Text(
-                      "123.46 บาท",
-                      style: TextStyle(
-                        fontSize: 23,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.deepPurple,
+                      Text(
+                        "123.46 บาท",
+                        style: TextStyle(
+                          fontSize: 23,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.deepPurple,
+                        ),
                       ),
+                    ],
+                  ),
+                ],
+              ),
+              const Card(
+                color: Colors.teal,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    vertical: 10,
+                    horizontal: 40,
+                  ),
+                  child: Text(
+                    "CARD TEXT",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
                     ),
-                  ],
+                  ),
                 ),
-              ],
-            )
-          ],
+              ),
+              // Container is popular to decorate. It also like div is html.
+              // Container(decoration:,),
+              // input
+              const TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: "Name",
+                  hintText: "Enter Name",
+                ),
+              )
+            ],
+          ),
         ),
         // floatingActionButton: FloatingActionButton(
         //   onPressed: () {
