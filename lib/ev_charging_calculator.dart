@@ -8,13 +8,13 @@ class EvChargingCalculator extends StatefulWidget {
 }
 
 class _EvChargingCalculatorState extends State<EvChargingCalculator> {
-  String _chrg_power = "-";
-  String _chrg_time = "-";
-  final _current_soc = TextEditingController();
-  final _target_soc = TextEditingController();
-  final _chrg_rate = TextEditingController();
+  String _chrgPower = "-";
+  String _chrgTime = "-";
+  final _currentSoc = TextEditingController();
+  final _targetSoc = TextEditingController();
+  final _chrgRate = TextEditingController();
   final _voltage = TextEditingController();
-  final _bat_capacity = TextEditingController();
+  final _batCapacity = TextEditingController();
   final _effiency = TextEditingController();
 
   @override
@@ -114,7 +114,7 @@ class _EvChargingCalculatorState extends State<EvChargingCalculator> {
                       margin: const EdgeInsets.fromLTRB(30, 0, 0, 0),
                       width: 160,
                       child: TextField(
-                        controller: _current_soc,
+                        controller: _currentSoc,
                         decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             hintText: "Enter Current SOC%"),
@@ -145,7 +145,7 @@ class _EvChargingCalculatorState extends State<EvChargingCalculator> {
                       margin: const EdgeInsets.fromLTRB(30, 0, 0, 0),
                       width: 160,
                       child: TextField(
-                        controller: _target_soc,
+                        controller: _targetSoc,
                         decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             hintText: "Enter Target SOC%"),
@@ -176,7 +176,7 @@ class _EvChargingCalculatorState extends State<EvChargingCalculator> {
                       margin: const EdgeInsets.fromLTRB(30, 0, 0, 0),
                       width: 160,
                       child: TextField(
-                        controller: _chrg_rate,
+                        controller: _chrgRate,
                         decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             hintText: "Enter Charging rate (A)"),
@@ -238,7 +238,7 @@ class _EvChargingCalculatorState extends State<EvChargingCalculator> {
                       margin: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                       width: 160,
                       child: TextField(
-                        controller: _bat_capacity,
+                        controller: _batCapacity,
                         decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             hintText: "Enter Battery Capacity (kWh)"),
@@ -302,7 +302,7 @@ class _EvChargingCalculatorState extends State<EvChargingCalculator> {
                       alignment: Alignment.centerRight,
                       child: Expanded(
                         child: Text(
-                          "$_chrg_power kWh",
+                          "$_chrgPower kWh",
                           style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
@@ -337,7 +337,7 @@ class _EvChargingCalculatorState extends State<EvChargingCalculator> {
                       alignment: Alignment.centerRight,
                       child: Expanded(
                         child: Text(
-                          "$_chrg_time hrs",
+                          "$_chrgTime hrs",
                           style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
@@ -354,23 +354,20 @@ class _EvChargingCalculatorState extends State<EvChargingCalculator> {
                   onPressed: () {
                     setState(
                       () {
-                        double current_soc_var =
-                            double.parse(_current_soc.text);
-                        double target_soc_var = double.parse(_target_soc.text);
-                        double chrg_rate_var = double.parse(_chrg_rate.text);
-                        double voltage_var = double.parse(_voltage.text);
-                        double bat_capacity_var =
-                            double.parse(_bat_capacity.text);
-                        double effiency_var = double.parse(_effiency.text);
+                        double currentSocVar = double.parse(_currentSoc.text);
+                        double targetSocVar = double.parse(_targetSoc.text);
+                        double chrgRateVar = double.parse(_chrgRate.text);
+                        double voltageVar = double.parse(_voltage.text);
+                        double batCapacityVar = double.parse(_batCapacity.text);
+                        double effiencyVar = double.parse(_effiency.text);
 
-                        double chrg_power_var =
-                            (voltage_var * chrg_rate_var) / 1000;
-                        double chrg_time_var = target_soc_var *
-                            bat_capacity_var /
+                        double chrgPowerVar = (voltageVar * chrgRateVar) / 1000;
+                        double chrgTimeVar = (targetSocVar - currentSocVar) *
+                            batCapacityVar /
                             100 /
-                            (chrg_power_var * effiency_var);
-                        _chrg_power = chrg_power_var.toStringAsFixed(4);
-                        _chrg_time = chrg_time_var.toStringAsFixed(3);
+                            (chrgPowerVar * effiencyVar);
+                        _chrgPower = chrgPowerVar.toStringAsFixed(4);
+                        _chrgTime = chrgTimeVar.toStringAsFixed(3);
                       },
                     );
                     debugPrint("");
