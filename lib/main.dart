@@ -21,9 +21,13 @@ class MyApp extends StatelessWidget {
       // theme
       theme: ThemeData(
         useMaterial3: true,
-        appBarTheme: const AppBarTheme(color: Colors.deepPurple),
+        appBarTheme: const AppBarTheme(
+          color: Color.fromARGB(255, 94, 230, 133),
+        ),
         // appBarTheme is a color of app bar theme (cover all page)
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.grey,
+        ),
         // colorSchema is a color of application that control the body if doesn't have it will use default color(white).
       ),
 
@@ -32,15 +36,11 @@ class MyApp extends StatelessWidget {
         // property : wiget
         appBar: AppBar(
           // title: const Text('Appbar'),
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                "assets/images/logo.png",
-                width: 80,
-                height: 80,
-              ),
-            ],
+          title: const Text(
+            "EV Charging App",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
           ),
           // action is one or more child but leading is have one child only.
           leading: IconButton(
@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
               debugPrint("leading is clicked.");
             },
             icon: const Icon(Icons.menu),
-            color: Colors.white,
+            color: Colors.black,
           ),
           actions: [
             IconButton(
@@ -56,264 +56,328 @@ class MyApp extends StatelessWidget {
                 debugPrint("inbox action button is clicked.");
               },
               icon: const Icon(Icons.inbox),
-              color: Colors.white,
+              color: Colors.black,
             ),
             IconButton(
               onPressed: () {
                 debugPrint("Profile action button is clicked.");
               },
               icon: const Icon(Icons.person),
-              color: Colors.white,
+              color: Colors.black,
             ),
           ],
         ),
         // body must have 1 wiget(child) only if want to add other wiget must use wrapper ( Column , Row or etc.) to set layout.
         // if have button or elements it will be paste in body.
-        body: Padding(
-          padding: const EdgeInsets.all(8.0),
-          // padding: 8.0 is default padding.
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Column(
-                children: [
-                  Image.asset(
-                    "assets/images/logo.png",
-                    width: 250,
-                    height: 100,
-                  ),
-                  const Text(
-                    "ขอบคุณที่ใช้บริการ",
-                    style: TextStyle(
-                      fontSize: 23,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const Text(
-                    "เรายินดีที่ได้เป็นส่วนหนึ่งในการเดินทางของคุณ",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.normal,
-                    ),
-                  ),
-                ],
+        backgroundColor: Colors.grey[200],
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.symmetric(
+                vertical: 40,
+                horizontal: 20,
               ),
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-                // padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
-
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          "สรุปรายละเอียดการชาร์จ",
-                          style: TextStyle(
-                            fontSize: 23,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Icon(Icons.calendar_today),
-                        Expanded(
-                          child: Text(
-                            // "วันที่ชาร์จ doekodwkokowdwkdowkodwkwdwddwok", if out of range of display it will be overflow content.
-                            // 'Expand' will be solve overflow content.
-                            // Youtube thumbnail is also use 'Expand'.
-                            "วันที่ชาร์จ doekodwkokowdwkdowkodwkwdk",
-                            style: TextStyle(
-                              fontSize: 18,
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Text(
-                          "9 ธันวาคม 2567",
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        )
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Row(
-                          children: [
-                            Icon(Icons.battery_charging_full),
-                            Text(
-                              "สถานีชาร์จ",
-                              style: TextStyle(
-                                fontSize: 18,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Expanded(
-                          child: Text(
-                            "PEA VOLTA ABC abc#123",
-                            textAlign: TextAlign.end,
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Row(
-                          children: [
-                            Icon(Icons.battery_0_bar),
-                            Text(
-                              "ประเภทหัวชาร์จ",
-                              style: TextStyle(
-                                fontSize: 18,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Text(
-                          "CCS2",
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        )
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Row(
-                          children: [
-                            Icon(Icons.timer),
-                            Text(
-                              "ระยะเวลาชาร์จ",
-                              style: TextStyle(
-                                fontSize: 18,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Text(
-                          "00:57:34",
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        )
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Row(
-                          children: [
-                            Icon(Icons.electric_bolt_sharp),
-                            Text(
-                              "จำนวนหน่วย",
-                              style: TextStyle(
-                                fontSize: 18,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Text(
-                          "15.345 KWh",
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        )
-                      ],
-                    ),
-                  ],
-                ),
+              margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                // border: Border.all(
+                //   color: Colors.black,
+                //   width: 1,
+                // ),
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(18.0),
+                    topRight: Radius.circular(18.0)),
               ),
-              const Column(
+              child: Column(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  const Row(
                     children: [
                       Text(
-                        "ค่าบริการรวมทั้งสิ้น",
+                        "Charging Battery",
                         style: TextStyle(
-                          fontSize: 23,
+                          color: Color.fromARGB(255, 68, 188, 102),
+                          fontSize: 25,
                           fontWeight: FontWeight.bold,
-                          color: Colors.deepPurple,
-                        ),
-                      ),
-                      Text(
-                        "123.46 บาท",
-                        style: TextStyle(
-                          fontSize: 23,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.deepPurple,
                         ),
                       ),
                     ],
                   ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Row(
+                        children: [
+                          Icon(Icons.battery_charging_full),
+                          SizedBox(
+                            width: 2,
+                          ),
+                          Text(
+                            "Current SOC%",
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(30, 0, 0, 0),
+                        width: 160,
+                        child: const TextField(
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              hintText: "Enter Current SOC%"),
+                        ),
+                      )
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Row(
+                        children: [
+                          Icon(Icons.battery_std),
+                          SizedBox(
+                            width: 2,
+                          ),
+                          Text(
+                            "Target SOC%",
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(30, 0, 0, 0),
+                        width: 160,
+                        child: const TextField(
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              hintText: "Enter Target SOC%"),
+                        ),
+                      )
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Row(
+                        children: [
+                          Icon(Icons.bolt),
+                          SizedBox(
+                            width: 2,
+                          ),
+                          Text(
+                            "Charging rate (A)",
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(30, 0, 0, 0),
+                        width: 160,
+                        child: const TextField(
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              hintText: "Enter Charging rate (A)"),
+                        ),
+                      )
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Row(
+                        children: [
+                          Icon(Icons.bolt),
+                          SizedBox(
+                            width: 2,
+                          ),
+                          Text(
+                            "Voltage (V)",
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(30, 0, 0, 0),
+                        width: 160,
+                        child: const TextField(
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              hintText: "Enter Voltage (V)"),
+                        ),
+                      )
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Row(
+                        children: [
+                          Icon(Icons.battery_saver),
+                          SizedBox(
+                            width: 2,
+                          ),
+                          Text(
+                            "Battery Capacity (kWh)",
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                        width: 160,
+                        child: const TextField(
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              hintText: "Enter Battery Capacity (kWh)"),
+                        ),
+                      )
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Row(
+                        children: [
+                          Icon(Icons.trending_up),
+                          SizedBox(
+                            width: 2,
+                          ),
+                          Text(
+                            "Effiency (%)",
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(30, 0, 0, 0),
+                        width: 160,
+                        child: const TextField(
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              hintText: "Enter Effiency (%)"),
+                        ),
+                      )
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Row(
+                        children: [
+                          Icon(Icons.electrical_services),
+                          SizedBox(
+                            width: 1,
+                          ),
+                          Text(
+                            "Charging Power (kWh)",
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(30, 0, 0, 0),
+                        width: 150,
+                        alignment: Alignment.centerRight,
+                        child: const Expanded(
+                          child: Text(
+                            "1.2412 kWh",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Row(
+                        children: [
+                          Icon(Icons.timer),
+                          SizedBox(
+                            width: 1,
+                          ),
+                          Text(
+                            "Charging Time (hrs)",
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(30, 0, 0, 0),
+                        width: 150,
+                        alignment: Alignment.centerRight,
+                        child: const Expanded(
+                          child: Text(
+                            "2.30 hrs",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      debugPrint("Confirm Charging");
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(255, 112, 255, 117),
+                    ),
+                    child: const Text(
+                      "Confirm Charging",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  )
                 ],
               ),
-              const Card(
-                color: Colors.teal,
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                    vertical: 10,
-                    horizontal: 40,
-                  ),
-                  child: Text(
-                    "CARD TEXT",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ),
-              // Container is popular to decorate. It also like div is html.
-              // Container(decoration:,),
-              // input
-              const TextField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: "Name",
-                  hintText: "Enter Name",
-                ),
-              )
-            ],
-          ),
+            ),
+          ],
         ),
-        // floatingActionButton: FloatingActionButton(
-        //   onPressed: () {
-        //     debugPrint("FAB is clicked.");
-        //   },
-        //   child: const Icon(Icons.shopping_bag_rounded),
-        //   // const Text(
-        //   //   "FAB",
-        //   //   style: TextStyle(
-        //   //     fontSize: 18,
-        //   //     fontWeight: FontWeight.bold,
-        //   //   ),
-        //   // ),
-        // ),
       ),
     );
   }
