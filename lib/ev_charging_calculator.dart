@@ -1,7 +1,21 @@
 import 'package:flutter/material.dart';
 
-class ChargingBatteryCalculate extends StatelessWidget {
-  const ChargingBatteryCalculate({super.key});
+class EvChargingCalculator extends StatefulWidget {
+  const EvChargingCalculator({super.key});
+
+  @override
+  State<EvChargingCalculator> createState() => _EvChargingCalculatorState();
+}
+
+class _EvChargingCalculatorState extends State<EvChargingCalculator> {
+  String _chrgPower = "-";
+  String _chrgTime = "-";
+  final _currentSoc = TextEditingController();
+  final _targetSoc = TextEditingController();
+  final _chrgRate = TextEditingController();
+  final _voltage = TextEditingController();
+  final _batCapacity = TextEditingController();
+  final _effiency = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -9,7 +23,6 @@ class ChargingBatteryCalculate extends StatelessWidget {
       // Scaffold is like form.
       // property : wiget
       appBar: AppBar(
-        // title: const Text('Appbar'),
         title: const Text(
           "EV Charging App",
           style: TextStyle(
@@ -100,8 +113,9 @@ class ChargingBatteryCalculate extends StatelessWidget {
                     Container(
                       margin: const EdgeInsets.fromLTRB(30, 0, 0, 0),
                       width: 160,
-                      child: const TextField(
-                        decoration: InputDecoration(
+                      child: TextField(
+                        controller: _currentSoc,
+                        decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             hintText: "Enter Current SOC%"),
                       ),
@@ -130,8 +144,9 @@ class ChargingBatteryCalculate extends StatelessWidget {
                     Container(
                       margin: const EdgeInsets.fromLTRB(30, 0, 0, 0),
                       width: 160,
-                      child: const TextField(
-                        decoration: InputDecoration(
+                      child: TextField(
+                        controller: _targetSoc,
+                        decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             hintText: "Enter Target SOC%"),
                       ),
@@ -160,8 +175,9 @@ class ChargingBatteryCalculate extends StatelessWidget {
                     Container(
                       margin: const EdgeInsets.fromLTRB(30, 0, 0, 0),
                       width: 160,
-                      child: const TextField(
-                        decoration: InputDecoration(
+                      child: TextField(
+                        controller: _chrgRate,
+                        decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             hintText: "Enter Charging rate (A)"),
                       ),
@@ -190,8 +206,9 @@ class ChargingBatteryCalculate extends StatelessWidget {
                     Container(
                       margin: const EdgeInsets.fromLTRB(30, 0, 0, 0),
                       width: 160,
-                      child: const TextField(
-                        decoration: InputDecoration(
+                      child: TextField(
+                        controller: _voltage,
+                        decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             hintText: "Enter Voltage (V)"),
                       ),
@@ -220,8 +237,9 @@ class ChargingBatteryCalculate extends StatelessWidget {
                     Container(
                       margin: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                       width: 160,
-                      child: const TextField(
-                        decoration: InputDecoration(
+                      child: TextField(
+                        controller: _batCapacity,
+                        decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             hintText: "Enter Battery Capacity (kWh)"),
                       ),
@@ -250,8 +268,9 @@ class ChargingBatteryCalculate extends StatelessWidget {
                     Container(
                       margin: const EdgeInsets.fromLTRB(30, 0, 0, 0),
                       width: 160,
-                      child: const TextField(
-                        decoration: InputDecoration(
+                      child: TextField(
+                        controller: _effiency,
+                        decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             hintText: "Enter Effiency (%)"),
                       ),
@@ -281,10 +300,10 @@ class ChargingBatteryCalculate extends StatelessWidget {
                       margin: const EdgeInsets.fromLTRB(30, 0, 0, 0),
                       width: 150,
                       alignment: Alignment.centerRight,
-                      child: const Expanded(
+                      child: Expanded(
                         child: Text(
-                          "1.2412 kWh",
-                          style: TextStyle(
+                          "$_chrgPower kWh",
+                          style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
                           ),
@@ -316,10 +335,10 @@ class ChargingBatteryCalculate extends StatelessWidget {
                       margin: const EdgeInsets.fromLTRB(30, 0, 0, 0),
                       width: 150,
                       alignment: Alignment.centerRight,
-                      child: const Expanded(
+                      child: Expanded(
                         child: Text(
-                          "2.30 hrs",
-                          style: TextStyle(
+                          "$_chrgTime hrs",
+                          style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
                           ),
@@ -333,7 +352,25 @@ class ChargingBatteryCalculate extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    debugPrint("Confirm Charging");
+                    setState(
+                      () {
+                        double currentSocVar = double.parse(_currentSoc.text);
+                        double targetSocVar = double.parse(_targetSoc.text);
+                        double chrgRateVar = double.parse(_chrgRate.text);
+                        double voltageVar = double.parse(_voltage.text);
+                        double batCapacityVar = double.parse(_batCapacity.text);
+                        double effiencyVar = double.parse(_effiency.text);
+
+                        double chrgPowerVar = (voltageVar * chrgRateVar) / 1000;
+                        double chrgTimeVar = (targetSocVar - currentSocVar) *
+                            batCapacityVar /
+                            100 /
+                            (chrgPowerVar * effiencyVar);
+                        _chrgPower = chrgPowerVar.toStringAsFixed(4);
+                        _chrgTime = chrgTimeVar.toStringAsFixed(3);
+                      },
+                    );
+                    debugPrint("");
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 112, 255, 117),

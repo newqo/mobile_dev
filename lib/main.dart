@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_mobile_dev/about_us_page.dart';
-import 'package:flutter_application_mobile_dev/charging_battery_calculate.dart';
+import 'package:flutter_application_mobile_dev/ev_charging_calculator.dart';
 import 'package:flutter_application_mobile_dev/welcome_page.dart';
 
 void main() {
