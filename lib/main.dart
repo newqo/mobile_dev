@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
         // colorSchema is a color of application that control the body if doesn't have it will use default color(white).
       ),
 
-      home: const WelcomePage(),
+      home: const EvChargingCalculator(),
     );
   }
 }
