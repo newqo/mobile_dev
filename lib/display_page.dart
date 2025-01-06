@@ -1,14 +1,23 @@
 import 'package:flutter/material.dart';
 
-class AboutUsPage extends StatelessWidget {
-  const AboutUsPage({super.key});
+class DisplayPage extends StatefulWidget {
+  final String? name; // ? is null can accept.
+  final int? age;
 
+  const DisplayPage({super.key, this.name, this.age});
+  // const DisplayPage({super.key, this.name, required this.age});
+
+  @override
+  State<DisplayPage> createState() => _DisplayPageState();
+}
+
+class _DisplayPageState extends State<DisplayPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Homepage",
+          "Display Page",
           style: TextStyle(
             fontWeight: FontWeight.bold,
           ),
@@ -42,29 +51,13 @@ class AboutUsPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "List Page",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                  ),
-                ),
-              ],
+            Text(
+              "Hi ${widget.name} , Age: ${widget.age}",
+              style: const TextStyle(
+                fontSize: 16,
+              ),
             ),
-            ElevatedButton(
-              onPressed: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) => const WelcomePage(),
-                //   ),
-                // );
-              },
-              child: const Text("WelcomePage"),
-            )
+            ElevatedButton(onPressed: () {}, child: const Text("Back"))
           ],
         ),
       ),

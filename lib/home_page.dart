@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_mobile_dev/welcome_page.dart';
 
-class AboutUsPage extends StatelessWidget {
-  const AboutUsPage({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,14 +62,26 @@ class AboutUsPage extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) => const WelcomePage(),
-                //   ),
-                // );
+                /*
+                Navigator.push
+                will push page/route/screen in to stack
+                Should use push 2-3 layer only 
+                (Go/Back)
+                 */
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const WelcomePage(),
+                  ),
+                );
               },
               child: const Text("WelcomePage"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/welcomePage');
+              },
+              child: const Text("WelcomePage (PushNamed)"),
             )
           ],
         ),
