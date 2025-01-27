@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_mobile_dev/about_us_page.dart';
 import 'package:flutter_application_mobile_dev/ev_charging_calculator.dart';
 import 'package:flutter_application_mobile_dev/home_page.dart';
+import 'package:flutter_application_mobile_dev/http_basic_request.dart';
+import 'package:flutter_application_mobile_dev/list_view_page.dart';
+import 'package:flutter_application_mobile_dev/list_view_separated_page.dart';
+import 'package:flutter_application_mobile_dev/my_futurebuilder_page.dart';
 import 'package:flutter_application_mobile_dev/welcome_page.dart';
 
 void main() {
@@ -74,6 +78,10 @@ class MyApp extends StatelessWidget {
         '/aboutUsPage': (context) => const AboutUsPage(),
         '/welcomePage': (context) => const WelcomePage(),
         '/evChargePage': (context) => const EvChargingCalculator(),
+        '/listViewPage': (context) => const ListViewPage(),
+        '/listViewSaparatePage': (context) => const ListViewSeparatedPage(),
+        '/myFutureBuilderPage': (context) => const MyFutureBuilderPage(),
+        '/httpBasicRequestPage': (context) => const HttpBasicRequest(),
       },
 
       // home: const HomePage(),

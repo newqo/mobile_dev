@@ -95,6 +95,30 @@ class _HomePageState extends State<HomePage> {
               },
               child: const Text("EvChargingPage"),
             ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/listViewPage');
+              },
+              child: const Text("ListViewPage"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/listViewSaparatePage');
+              },
+              child: const Text("ListViewPageSaparatedPage"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/myFutureBuilderPage');
+              },
+              child: const Text("MyFutureBuilderPage"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/httpBasicRequestPage');
+              },
+              child: const Text("httpBasicRequestPage"),
+            ),
           ],
         ),
       ),
