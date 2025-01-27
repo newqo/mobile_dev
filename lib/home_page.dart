@@ -60,29 +60,41 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
+            // ElevatedButton(
+            //   onPressed: () {
+            //     /*
+            //     Navigator.push
+            //     will push page/route/screen in to stack
+            //     Should use push 2-3 layer only
+            //     (Go/Back)
+            //      */
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(
+            //         builder: (context) => const WelcomePage(),
+            //       ),
+            //     );
+            //   },
+            //   child: const Text("WelcomePage"),
+            // ),
             ElevatedButton(
               onPressed: () {
-                /*
-                Navigator.push
-                will push page/route/screen in to stack
-                Should use push 2-3 layer only 
-                (Go/Back)
-                 */
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const WelcomePage(),
-                  ),
-                );
+                Navigator.pushNamed(context, '/welcomePage');
               },
               child: const Text("WelcomePage"),
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/welcomePage');
+                Navigator.pushNamed(context, '/aboutUsPage');
               },
-              child: const Text("WelcomePage (PushNamed)"),
-            )
+              child: const Text("AboutUsPage"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/evChargePage');
+              },
+              child: const Text("EvChargingPage"),
+            ),
           ],
         ),
       ),

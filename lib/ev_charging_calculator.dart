@@ -30,13 +30,13 @@ class _EvChargingCalculatorState extends State<EvChargingCalculator> {
           ),
         ),
         // action is one or more child but leading is have one child only.
-        leading: IconButton(
-          onPressed: () {
-            debugPrint("leading is clicked.");
-          },
-          icon: const Icon(Icons.menu),
-          color: Colors.black,
-        ),
+        // leading: IconButton(
+        //   onPressed: () {
+        //     debugPrint("leading is clicked.");
+        //   },
+        //   icon: const Icon(Icons.menu),
+        //   color: Colors.black,
+        // ),
         actions: [
           IconButton(
             onPressed: () {

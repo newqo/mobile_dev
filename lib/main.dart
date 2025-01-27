@@ -70,9 +70,10 @@ class MyApp extends StatelessWidget {
 
       initialRoute: '/',
       routes: {
-        '/': (context) => HomePage(),
-        '/aboutUsPage': (context) => AboutUsPage(),
-        '/welcomePage': (context) => WelcomePage(),
+        '/': (context) => const HomePage(),
+        '/aboutUsPage': (context) => const AboutUsPage(),
+        '/welcomePage': (context) => const WelcomePage(),
+        '/evChargePage': (context) => const EvChargingCalculator(),
       },
 
       // home: const HomePage(),

@@ -8,7 +8,7 @@ class AboutUsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Homepage",
+          "AboutUsPage",
           style: TextStyle(
             fontWeight: FontWeight.bold,
           ),
