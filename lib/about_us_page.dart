@@ -46,7 +46,7 @@ class AboutUsPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "List Page",
+                  "About Us Page",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
@@ -56,14 +56,9 @@ class AboutUsPage extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) => const WelcomePage(),
-                //   ),
-                // );
+                Navigator.pop(context);
               },
-              child: const Text("WelcomePage"),
+              child: const Text("Back"),
             )
           ],
         ),
