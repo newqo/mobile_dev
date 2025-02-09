@@ -6,6 +6,7 @@ import 'package:flutter_application_mobile_dev/http_basic_request.dart';
 import 'package:flutter_application_mobile_dev/list_view_page.dart';
 import 'package:flutter_application_mobile_dev/list_view_separated_page.dart';
 import 'package:flutter_application_mobile_dev/my_futurebuilder_page.dart';
+import 'package:flutter_application_mobile_dev/my_listpage.dart';
 import 'package:flutter_application_mobile_dev/welcome_page.dart';
 
 void main() {
@@ -82,6 +83,7 @@ class MyApp extends StatelessWidget {
         '/listViewSaparatePage': (context) => const ListViewSeparatedPage(),
         '/myFutureBuilderPage': (context) => const MyFutureBuilderPage(),
         '/httpBasicRequestPage': (context) => const HttpBasicRequest(),
+        '/mylistpage': (context) => const MyListPage(),
       },
 
       // home: const HomePage(),

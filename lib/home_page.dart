@@ -119,6 +119,12 @@ class _HomePageState extends State<HomePage> {
               },
               child: const Text("httpBasicRequestPage"),
             ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/mylistpage');
+              },
+              child: const Text("mylistpage"),
+            ),
           ],
         ),
       ),
