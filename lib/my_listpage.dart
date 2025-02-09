@@ -23,8 +23,8 @@ class _MyListPageState extends State<MyListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.amberAccent,
-        title: const Text('My App'),
+        // backgroundColor: Colors.amberAccent,
+        title: const Text('Product List Page'),
       ),
       body: Center(
         child: FutureBuilder(

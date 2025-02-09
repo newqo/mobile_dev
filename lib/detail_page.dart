@@ -44,7 +44,7 @@ class _DetailPageState extends State<DetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.amberAccent,
+        // backgroundColor: Colors.amberAccent,
         title: const Text('Detail Page'),
       ),
       body: Center(
